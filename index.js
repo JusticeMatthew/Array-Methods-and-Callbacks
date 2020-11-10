@@ -5,25 +5,32 @@ import { fifaData } from './fifa.js';
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Investigate the data above. Practice accessing data by console.log-ing the following pieces of data note, you may want to filter the data first 😉*/
 
+const finals2014 = fifaData.filter(function(item) {
+    return item["Year"] === 2014 && item["Stage"] === "Final";
+})
+
 //(a) Home Team name for 2014 world cup final
-
+console.log(finals2014[0]["Home Team Name"]);
 //(b) Away Team name for 2014 world cup final
-
+console.log(finals2014[0]["Away Team Name"]);
 //(c) Home Team goals for 2014 world cup final
-
+console.log(finals2014[0]["Home Team Goals"]);
 //(d) Away Team goals for 2014 world cup final
-
+console.log(finals2014[0]["Away Team Goals"]);
 //(e) Winner of 2014 world cup final */
-
+if (finals2014[0]["Home Team Goals"] > finals2014[0]["Away Team Goals"]) {
+    console.log(finals2014[0]["Home Team Name"]);
+} else {
+    console.log(finals2014[0]["Away Team Name"]); 
+}
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Create a function called  getFinals that takes `data` as an argument and returns an array of objects with only finals data */
 
-function getFinals(/* code here */) {
-   /* code here */
+function getFinals(data) {
+   const finalsData = data.filter(item => item["Stage"] === "Final");
+   return finalsData;
 }
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Implement a higher-order function called `getYears` that accepts the callback function `getFinals`, and returns an array called `years` containing all of the years in the dataset */
